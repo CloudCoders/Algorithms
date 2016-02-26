@@ -12,6 +12,6 @@ public class Main {
 //        System.out.println(array.toString());
 //        System.out.println(array.peek());
 
-        System.out.println((2) + (3));
+        System.out.println(6+4 >> 1);
     }
 }
