@@ -1,6 +1,6 @@
-package eda.linear;
+package eda.FIFO;
 
-import eda.model.Qeue;
+import eda.FIFO.model.Qeue;
 
 public class ArrayQeue<T> implements Qeue<T> {
 

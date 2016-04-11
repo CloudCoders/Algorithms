@@ -1,5 +1,6 @@
 package eda.linear;
 
+import eda.FIFO.ArrayQeue;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;

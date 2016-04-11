@@ -1,4 +1,4 @@
-package eda.model;
+package eda.FIFO.model;
 
 public interface Qeue<T> {
     void add(T e);
