@@ -2,13 +2,10 @@ package eda.linear;
 
 import eda.model.Qeue;
 
-/**
- * Created by toni on 24/02/16.
- */
 public class ArrayQeue<T> implements Qeue<T> {
 
     private T[] array;
-    private int end, start, size;
+    private int size;
 
     public ArrayQeue(int maxSize) {
         this.array = (T[]) new Object[maxSize];

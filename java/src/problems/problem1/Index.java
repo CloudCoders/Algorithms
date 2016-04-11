@@ -1,8 +1,5 @@
 package problems.problem1;
 
-/**
- * Created by toni on 26/02/16.
- */
 public class Index {
 
     public int getIndex(int[] v, int init, int end){
