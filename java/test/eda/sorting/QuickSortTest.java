@@ -1,5 +1,6 @@
 package eda.sorting;
 
+import com.sun.xml.internal.bind.v2.model.annotation.Quick;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -10,7 +11,8 @@ import static org.junit.Assert.*;
 public class QuickSortTest {
     @Test
     public void test(){
-        int[] v = new int[7];
+        Integer[] v = new Integer[7];
+
         v[0] = 5;
         v[1] = 4;
         v[2] = 7;
@@ -19,11 +21,9 @@ public class QuickSortTest {
         v[5] = 1;
         v[6] = 9;
 
-        QuickSort ne = new QuickSort<Integer>();
+        QuickSort.<Integer>quicksort(v);
 
-
-        QuickSort<Integer>(v);
-        assertEquals(1, v[0]);
+        assertEquals(new Integer(1), v[0]);
     }
 
 
