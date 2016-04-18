@@ -3,7 +3,7 @@ package problems.problem2;
 import java.util.Arrays;
 import java.util.List;
 
-public class JoseLlorensImp {
+public class JoseLlorensImp implements ExamMarks {
     public int numberOfMarks(int[] marks, int mark){
         return numberOfMarks(marks,0,marks.length-1,mark);
     }
