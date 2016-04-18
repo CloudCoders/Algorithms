@@ -6,6 +6,13 @@ import static org.junit.Assert.*;
 
 public class IndexTest {
 
+    private Index index;
+
+    @Test
+    public void setUp(){
+        index = new Index();
+    }
+
     @Test
     public void testSmallIndex(){
         int[] v = new int[7];
@@ -16,8 +23,6 @@ public class IndexTest {
         v[4] = 3;
         v[5] = 4;
         v[6] = 5;
-
-        Index index = new Index();
 
         assertEquals(1, index.getIndex(v, 0, v.length));
     }
@@ -32,8 +37,6 @@ public class IndexTest {
         v[4] = 4;
         v[5] = 5;
         v[6] = 6;
-
-        Index index = new Index();
 
         assertEquals(0, index.getIndex(v, 0, v.length));
     }
@@ -50,8 +53,6 @@ public class IndexTest {
         v[5] = 2;
         v[6] = 3;
 
-        Index index = new Index();
-
         assertEquals(3, index.getIndex(v, 0, v.length));
     }
 
@@ -65,8 +66,6 @@ public class IndexTest {
         v[4] = -2;
         v[5] = -1;
         v[6] = 1;
-
-        Index index = new Index();
 
         assertEquals(5, index.getIndex(v, 0, v.length));
     }
