@@ -9,11 +9,11 @@ public class CarlosImp implements ExamMarks{
      * @param mark a mark exam
      * @return number of marks greater than a one mark
      */
-    public static int numberOfMarks(int[] h, int mark){
+    public int numberOfMarks(int[] h, int mark){
         return numberOfMarks(h, mark, 0, h.length-1);
     }
     
-    public static int numberOfMarks(int[] h, int mark, int start, int end){
+    public int numberOfMarks(int[] h, int mark, int start, int end){
         if (start <= end) {
             int half = (start + end)/2;
             if (h[half] > mark) {

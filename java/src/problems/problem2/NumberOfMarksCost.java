@@ -1,6 +1,7 @@
 package problems.problem2;
 
 import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
 import java.util.*;
 
 
@@ -11,7 +12,7 @@ import java.util.*;
  * @author carmocca 
  * @version (Abril 2016)
  */
-public class numberOfMarksCost {
+public class NumberOfMarksCost {
 
     //Change these values to test different array sizes
     private static int SIZE_INI = 100000;
@@ -30,7 +31,8 @@ public class numberOfMarksCost {
             t1 = t2 = time = 0;
             System.out.println("Write the name of the class that implements ExamMarks:");
             Scanner sc = new Scanner(System.in);
-            Class<?> c = Class.forName(sc.nextLine());
+			Class<?> c = Class.forName(sc.nextLine());
+			Constructor constructor = c.getConstructor();
             Method method = c.getMethod("numberOfMarks", int[].class, int.class);
             System.out.println("\n#---------------------------------------------");
             System.out.println("#         Measurement of search times: ");
@@ -41,7 +43,7 @@ public class numberOfMarksCost {
             for (int t = SIZE_INI; t <= SIZE_FIN; t += SIZE_INCR) {
                 vector = generateIncreasingRandoms(t, MAX_ARRAY);
                 t1 = System.nanoTime();
-                int n = (int) method.invoke(null, vector, MARK);
+                int n = (int) method.invoke(constructor.newInstance(), vector, MARK);
                 t2 = System.nanoTime();
                 time += t2 - t1;
                 System.out.printf(Locale.US, " %1$8d %2$8.0f μs      %3$8d\n",
@@ -49,9 +51,10 @@ public class numberOfMarksCost {
                         time / 1e3,
                         n);
             }
-        } catch (Exception ex){
-            System.out.println("ERROR");
-        }
+        } catch(Exception e) {
+    		//e.printStackTrace(System.out);
+			System.out.println("Class not found or not compiled");
+		}
     }
 
     /**
