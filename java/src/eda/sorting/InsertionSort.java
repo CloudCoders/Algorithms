@@ -6,8 +6,8 @@ import java.util.Scanner;
 /**
  * Created by JoseManuel on 19/04/2016.
  */
-public class InsertionSort<T extends Comparable<T>> implements Sorting<T> {
-    public static <T extends Comparable<T>> void sort(T[] arr){
+public class InsertionSort<T extends Comparable<T>>  implements Sorting<T> {
+    public <T extends Comparable<T>> void sort(T[] arr){
         if(arr == null || arr.length < 2){
             return;
         }

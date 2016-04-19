@@ -6,11 +6,13 @@ import java.util.Scanner;
 /**
  * Created by JoseManuel on 19/04/2016.
  */
-public class QuickSort implements Sorting {
-    public static <T extends Comparable<T>> void sort (T[]arr){
+public class QuickSort<T extends Comparable<T>> implements Sorting<T> {
+
+    public <T extends Comparable<T>> void sort(T[]arr){
         sort(arr,0,arr.length-1);
     }
-    public static <T extends Comparable<T>> void sort (T[]arr,int i, int j){
+
+    public <T extends Comparable<T>> void sort (T[]arr,int i, int j){
         if(i>=j){
             return;
         }
@@ -45,4 +47,6 @@ public class QuickSort implements Sorting {
     }
 
 
-    }
+
+
+}

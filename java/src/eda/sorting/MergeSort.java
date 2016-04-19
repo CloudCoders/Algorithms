@@ -5,14 +5,14 @@ package eda.sorting;
  * @author jose.llorens.ripolles@gmail.com
  */
 
-public class MergeSort implements Sorting {
+public class MergeSort<T extends Comparable<T>> implements Sorting<T> {
 
 
-    public static <T extends Comparable<T>> void sort(T[] ar) {
+    public <T extends Comparable<T>> void sort(T[] ar) {
         sort(ar, 0, ar.length - 1);
     }
 
-    public static <T extends Comparable<T>> void sort(T[] ar, int i, int f) {
+    public <T extends Comparable<T>> void sort(T[] ar, int i, int f) {
         while (i < f) {
             int m = (i + f) / 2;
             sort(ar, i, m);
@@ -21,7 +21,7 @@ public class MergeSort implements Sorting {
         }
     }
 
-    public static <T extends Comparable<T>> void merge(T[] ar, int i, int f, int m) {
+    public <T extends Comparable<T>> void merge(T[] ar, int i, int f, int m) {
         T[] aux = (T[]) new Comparable[f - i + 1];
         int k = 0, a = i, b = m + 1;
         while (a <= m || b <= f) {
