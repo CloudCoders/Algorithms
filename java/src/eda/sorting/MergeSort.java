@@ -4,7 +4,11 @@ package eda.sorting;
 /**
  * @author jose.llorens.ripolles@gmail.com
  */
+<<<<<<< HEAD:java/src/eda/sorting/MergeSort.java
 public class MergeSort implements Sorting {
+=======
+public class MergeSort {
+>>>>>>> f35b2eb1f41f0a24228f6579a3da94d8b2525025:java/src/eda/sorting/Mergesort.java
 
     public static <T extends Comparable<T>> void sort(T[] ar) {
         sort(ar, 0, ar.length - 1);

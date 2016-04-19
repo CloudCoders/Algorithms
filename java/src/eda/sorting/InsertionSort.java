@@ -21,31 +21,5 @@ public class InsertionSort<T extends Comparable<T>> implements Sorting<T> {
             arr[j+1]=aux;
         }
     }
-    public static void main(String[]args){
-        boolean error=true;
-        while(error) {
-            try {
-                error = false;
-                Scanner keyboard = new Scanner(System.in);
-                System.out.println("Length of the array ?");
-                int len = keyboard.nextInt();
-                Integer[] arr = new Integer[len];
-                for(int i =0 ; i<len;i++){
-                    arr[i] = (int) (Math.random()*100);
-                }
-                printArray(arr);
-                InsertionSort.sort(arr);
-                printArray(arr);
-            }catch(InputMismatchException e){
-                System.out.println("For length it's only admitted a Integer");
-                error=true;
-            }
-        }
-    }
-    private static<T extends Comparable<T>> void printArray(T[] arr){
-        for(int i = 0; i<arr.length;i++){
-            System.out.print(arr[i]+" ");
-        }
-        System.out.println("\n");
-    }
+
 }
