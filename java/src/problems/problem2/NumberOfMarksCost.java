@@ -9,7 +9,7 @@ import java.util.*;
  * This class studies the efficiency of numberOfMarks.
  * 
  * 
- * @author carmocca 
+ * @author  carmocca 
  * @version (Abril 2016)
  */
 public class NumberOfMarksCost {
