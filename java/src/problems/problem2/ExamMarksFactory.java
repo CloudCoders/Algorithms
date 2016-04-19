@@ -7,6 +7,6 @@ public class ExamMarksFactory implements ExamMarks.Factory {
 
     @Override
     public List<ExamMarks> create() {
-        return Arrays.asList(new ToniImp(),new JoseLlorensImp());
+        return Arrays.asList(new ToniImp(),new JoseLlorensImp(), new KevinImp());
     }
 }
