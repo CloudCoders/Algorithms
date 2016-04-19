@@ -4,7 +4,7 @@ package eda.sorting;
 /**
  * @author jose.llorens.ripolles@gmail.com
  */
-public class Mergesort {
+public class MergeSort {
 
     public static <T extends Comparable<T>> void mergesort(T[] ar) {
         mergesort(ar, 0, ar.length - 1);
