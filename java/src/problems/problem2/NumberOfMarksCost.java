@@ -31,8 +31,8 @@ public class NumberOfMarksCost {
             t1 = t2 = time = 0;
             System.out.println("Write the name of the class that implements ExamMarks:");
             Scanner sc = new Scanner(System.in);
-			Class<?> c = Class.forName(sc.nextLine());
-			Constructor constructor = c.getConstructor();
+            Class<?> c = Class.forName(sc.nextLine());
+            Constructor constructor = c.getConstructor();
             Method method = c.getMethod("numberOfMarks", int[].class, int.class);
             System.out.println("\n#---------------------------------------------");
             System.out.println("#         Measurement of search times: ");
@@ -52,9 +52,9 @@ public class NumberOfMarksCost {
                         n);
             }
         } catch(Exception e) {
-    		//e.printStackTrace(System.out);
-			System.out.println("Class not found or not compiled");
-		}
+            //e.printStackTrace(System.out);
+            System.out.println("Class not found or not compiled");
+        }
     }
 
     /**
