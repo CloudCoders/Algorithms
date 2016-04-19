@@ -25,6 +25,6 @@ public class SelectionSort implements Sorting {
         arr[j] = aux;
     }
 
-    
+
 }
 
