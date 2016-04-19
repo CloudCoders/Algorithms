@@ -7,6 +7,7 @@ public class JoseLlorensImp implements ExamMarks {
     public int numberOfMarks(int[] marks, int mark){
         return numberOfMarks(marks,0,marks.length-1,mark);
     }
+
     public int numberOfMarks(int[]marks , int i, int j, int mark){
         if(i>j) return 0 ;
         int half = (i+j)/2;

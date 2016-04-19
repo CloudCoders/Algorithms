@@ -4,17 +4,17 @@ package eda.sorting;
 /**
  * @author jose.llorens.ripolles@gmail.com
  */
-public class Mergesort {
+public class MergeSort implements Sorting {
 
-    public static <T extends Comparable<T>> void mergesort(T[] ar) {
-        mergesort(ar, 0, ar.length - 1);
+    public static <T extends Comparable<T>> void sort(T[] ar) {
+        sort(ar, 0, ar.length - 1);
     }
 
-    public static <T extends Comparable<T>> void mergesort(T[] ar, int i, int f) {
+    public static <T extends Comparable<T>> void sort(T[] ar, int i, int f) {
         while (i < f) {
             int m = (i + f) / 2;
-            mergesort(ar, i, m);
-            mergesort(ar, m + 1, f);
+            sort(ar, i, m);
+            sort(ar, m + 1, f);
             merge(ar, i, f, m);
         }
     }
