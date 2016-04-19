@@ -25,15 +25,4 @@ class CarlosImp implements ExamMarks{
         }
         return 0;
     }
-    
-    int numberOfMarks(int[] h, int mark, int start, int end){
-        if (start <= end) {
-            int half = (start + end)/2;
-            if (v[half] > mark) {
-                return 1 + numberOfMarks(h, mark, start, half-1) + numberOfMarks(h, mark, half+1, end);
-            } else
-                return numberOfMarks(h, mark, half+1, end);
-        }
-        return 0;
-    }
 }
