@@ -20,7 +20,7 @@ public class SortingTest {
     }
 
     @Test
-    public void test_random(){
+    public void should_sort_when_random(){
         Integer[] h = new Integer[50000];
         for(int i = 0; i<h.length;i++){
             h[i] = (int) Math.random()*100;
@@ -31,7 +31,7 @@ public class SortingTest {
     }
 
     @Test
-    public void test_sorted_ascending_array(){
+    public void should_sort_when_ascending_array(){
         Integer[] h = new Integer[50000];
         for(int i=0;i<h.length;i++){
             h[i]=i;
@@ -41,7 +41,7 @@ public class SortingTest {
         assertArrayEquals(res,h);
     }
     @Test
-    public void test_sorted_descending_array(){
+    public void should_sort_when_descending_array(){
         Integer[] h = new Integer[50000];
         for(int i=h.length-1;i>=0;i--){
             h[i]=i;
@@ -51,14 +51,14 @@ public class SortingTest {
         assertArrayEquals(res,h);
     }
     @Test
-    public void all_equals_array(){
+    public void should_sort_when_all_equals_array(){
         Integer[] h = new Integer[50000];
         for(int i =0;i<h.length;i++){
             h[i] = 0;
         }
     }
     @Test
-    public void test_mostly_sorted_ascending_array(){
+    public void should_sort_when_mostly_sorted_ascending_array(){
         Integer[] h = new Integer[50000];
         for(int i=0;i<h.length;i++){
             h[i]=i + (int) Math.random()*10;
@@ -68,7 +68,7 @@ public class SortingTest {
         assertArrayEquals(res,h);
     }
     @Test
-    public void test_mostly_sorted_descending_array(){
+    public void should_sort_when_mostly_sorted_descending_array(){
         Integer[] h = new Integer[50000];
         for(int i=h.length-1;i>=0;i--){
             h[i]=i-(int)Math.random()*10;

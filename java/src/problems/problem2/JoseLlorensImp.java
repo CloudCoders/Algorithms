@@ -7,7 +7,7 @@ public class JoseLlorensImp implements ExamMarks {
     }
 
 
-    public int numberOfMarks(int[]marks , int i, int j, int mark) {
+    private int numberOfMarks(int[]marks , int i, int j, int mark) {
         if (i > j) return 0;
         int half = (i + j) / 2;
         if (marks[half] > mark) {
