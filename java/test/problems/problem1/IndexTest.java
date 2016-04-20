@@ -2,19 +2,19 @@ package problems.problem1;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class IndexTest {
 
     private Index index;
 
     @Test
-    public void setUp(){
+    public void setUp() {
         index = new Index();
     }
 
     @Test
-    public void testSmallIndex(){
+    public void testSmallIndex() {
         int[] v = new int[7];
         v[0] = -2;
         v[1] = -1;
@@ -28,7 +28,7 @@ public class IndexTest {
     }
 
     @Test
-    public void testVerySmallIndex(){
+    public void testVerySmallIndex() {
         int[] v = new int[7];
         v[0] = -1;
         v[1] = 1;
@@ -43,7 +43,7 @@ public class IndexTest {
 
 
     @Test
-    public void testBigIndex(){
+    public void testBigIndex() {
         int[] v = new int[7];
         v[0] = -4;
         v[1] = -3;
@@ -57,7 +57,7 @@ public class IndexTest {
     }
 
     @Test
-    public void testVeryBigIndex(){
+    public void testVeryBigIndex() {
         int[] v = new int[7];
         v[0] = -6;
         v[1] = -5;
