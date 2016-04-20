@@ -1,7 +1,5 @@
 package eda.sorting;
 
-import problems.problem2.ExamMarks;
-
 import java.util.List;
 
 /**
