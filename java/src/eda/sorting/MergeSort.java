@@ -1,6 +1,9 @@
 
 package eda.sorting;
 
+import java.nio.charset.CoderMalfunctionError;
+import java.util.Scanner;
+
 /**
  * @author jose.llorens.ripolles@gmail.com
  */
@@ -13,7 +16,7 @@ public class MergeSort<T extends Comparable<T>> implements Sorting<T> {
     }
 
     public <T extends Comparable<T>> void sort(T[] ar, int i, int f) {
-        while (i < f) {
+        if (i < f) {
             int m = (i + f) / 2;
             sort(ar, i, m);
             sort(ar, m + 1, f);
@@ -22,10 +25,14 @@ public class MergeSort<T extends Comparable<T>> implements Sorting<T> {
     }
 
     public <T extends Comparable<T>> void merge(T[] ar, int i, int f, int m) {
+        if(i>=f){
+            return;
+        }
         T[] aux = (T[]) new Comparable[f - i + 1];
         int k = 0, a = i, b = m + 1;
-        while (a <= m || b <= f) {
-            if (ar[a].compareTo(ar[b]) < 1) {
+        while (a <= m && b <= f) {
+
+            if (ar[a].compareTo(ar[b]) <=0) {
                 aux[k] = ar[a];
                 k++;
                 a++;
@@ -47,6 +54,7 @@ public class MergeSort<T extends Comparable<T>> implements Sorting<T> {
         }
         for (k = 0; k < aux.length; k++) {
             ar[i] = aux[k];
+            i++;
 
         }
     }
