@@ -25,7 +25,6 @@ public class NumberOfMarksCost {
     public static void main(String args[]) {
         int [] vector;
         double t1, t2, time;
-        t1 = t2 = time = 0;
         List<ExamMarks> list = new ExamMarksFactory().create();
 
         System.out.println("#-----------------------------------------");
@@ -37,6 +36,7 @@ public class NumberOfMarksCost {
 
         for (ExamMarks ex : list){
             String clazz = ex.getClass().getName();
+            t1 = t2 = time = 0;
             System.out.println("#-----------------------------------------");
             System.out.println("#  \t\t" + clazz.replaceFirst("problems.problem2.", "") + " implementation.");
             System.out.println("#-----------------------------------------");
