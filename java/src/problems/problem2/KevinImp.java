@@ -17,6 +17,6 @@ public class KevinImp implements ExamMarks{
             else
                 return numberOfMarks(marks, ini, mitad, mark) + numberOfMarks(marks, mitad+1, fin, mark);
         }
-        return -1;
+        return 0;
     }
 }
