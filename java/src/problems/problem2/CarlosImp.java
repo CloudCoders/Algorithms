@@ -18,9 +18,9 @@ public class CarlosImp implements ExamMarks{
             int half = (start + end)/2;
             if (h[half] > mark) {
                 int i = half -1;
-                while (i > start && h[i] > mark)
+                while (i >= start && h[i] > mark)
                     i--;
-                return end - i + 2;
+                return end - i;
             } else
                 return numberOfMarks(h, mark, half+1, end);
         }
