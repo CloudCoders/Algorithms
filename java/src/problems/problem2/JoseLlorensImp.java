@@ -17,5 +17,4 @@ public class JoseLlorensImp implements ExamMarks {
         }
     }
 
-
 }
