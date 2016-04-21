@@ -17,41 +17,66 @@ public class ArrayQueue<T> implements Queue<T>{
         array = (T[]) new Object[PREDEFYNIED_INITIAL_LENGTH];
         head = 0;
         tail = 0;
+        elements=0;
     }
     public ArrayQueue (int length){
         array = (T[]) new Object[length];
         head = 0;
         tail = 0;
+        elements = 0;
     }
 
     @Override
     public void add(T x) {
-        array[tail]=x;
-        tail ++;
+        if(elements<array.length) {
+            array[tail] = x;
+            incTail();
+            elements++;
+        }
     }
 
     @Override
     public T element() {
-        return null;
+        return array[head];
     }
 
-    @Override
-    public boolean offer(T x) {
-        return true;
-    }
+
 
     @Override
     public T peek() {
-        return null;
+        if(!isEmpty()){
+            return element();
+        }else{
+            return null;
+        }
     }
 
     @Override
     public T poll() {
-        return null;
+        if(!isEmpty()){
+            return remove();
+        }else{
+            return null;
+        }
     }
 
     @Override
     public T remove() {
-        return null;
+        T aux = array[head];
+        incHead();
+        elements--;
+        return aux;
     }
+
+    private void incHead(){
+         head = (head+1)%array.length;
+    }
+
+    private void incTail(){
+        tail = (tail+1)%array.length;
+    }
+    private boolean isEmpty(){
+        return this.elements==0;
+    }
+
 }

@@ -9,7 +9,6 @@ public interface Queue<T> {
 
     T element();
 
-    boolean offer(T x);
 
     T peek();
 
