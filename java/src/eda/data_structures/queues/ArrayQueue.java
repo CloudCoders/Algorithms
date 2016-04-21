@@ -37,7 +37,7 @@ public class ArrayQueue<T> implements Queue<T>{
 
     @Override
     public boolean offer(T x) {
-        return false;
+        return true;
     }
 
     @Override
