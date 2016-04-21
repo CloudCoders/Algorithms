@@ -1,6 +1,6 @@
 package eda.FIFO.model;
 
-public interface Qeue<T> {
+public interface Queue<T> {
     void add(T e);
     T poll();
     T peek();

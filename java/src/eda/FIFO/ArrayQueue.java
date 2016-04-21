@@ -1,13 +1,13 @@
 package eda.FIFO;
 
-import eda.FIFO.model.Qeue;
+import eda.FIFO.model.Queue;
 
-public class ArrayQeue<T> implements Qeue<T> {
+public class ArrayQueue<T> implements Queue<T> {
 
     private T[] array;
     private int size;
 
-    public ArrayQeue(int maxSize) {
+    public ArrayQueue(int maxSize) {
         this.array = (T[]) new Object[maxSize];
     }
 
