@@ -79,4 +79,13 @@ public class ArrayQueue<T> implements Queue<T>{
         return this.elements==0;
     }
 
+
+    //not well implemented, fix it after exam
+    private void duplicateArray(){
+        T[] newArray = (T[]) new Object[array.length*2];
+        for(int i = 0;i<array.length;i++){
+            newArray[i]=array[i];
+        }
+    }
+
 }
