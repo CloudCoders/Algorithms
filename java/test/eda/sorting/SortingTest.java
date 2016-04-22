@@ -97,11 +97,8 @@ public class SortingTest {
     }
 
     @Test
-<<<<<<< HEAD
-    public void should_return_empty_array_when_emprty_array(){
-=======
+
     public void should_return_empty_array_when_empty_array() {
->>>>>>> e66bfc33c5105fc03c42ab96ba9a6d29d28bb4c3
         Comparable h[] = new Comparable[0];
         Comparable res[] = new Comparable[0];
 
