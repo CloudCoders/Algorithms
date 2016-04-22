@@ -30,8 +30,11 @@ public class ArrayQueue<T> implements Queue<T>{
     public void add(T x) {
         if(elements<array.length) {
             array[tail] = x;
-            incTail();
+            tail = inc(tail);
             elements++;
+        }else{
+            duplicateArray();
+            add(x);
         }
     }
 
@@ -63,29 +66,29 @@ public class ArrayQueue<T> implements Queue<T>{
     @Override
     public T remove() {
         T aux = array[head];
-        incHead();
+        head = inc(head);
         elements--;
         return aux;
     }
 
-    private void incHead(){
-         head = (head+1)%array.length;
+    private int inc(int i){
+        return (i+1)%array.length;
     }
 
-    private void incTail(){
-        tail = (tail+1)%array.length;
-    }
     private boolean isEmpty(){
         return this.elements==0;
     }
 
-
-    //not well implemented, fix it after exam
+    //Mirar be si tail te que ser elements o elements-1
     private void duplicateArray(){
         T[] newArray = (T[]) new Object[array.length*2];
-        for(int i = 0;i<array.length;i++){
-            newArray[i]=array[i];
+        for(int j=0;j<elements;j++){
+            newArray[j] = array[head];
+            head=inc(head);
         }
+        array=newArray;
+        head=0;
+        tail=elements;
     }
 
 }
