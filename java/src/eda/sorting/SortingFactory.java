@@ -7,6 +7,6 @@ public class SortingFactory implements Sorting.Factory {
 
     @Override
     public List<Sorting> create() {
-        return Arrays.asList(new InsertionSort(), new MergeSort(),new QuickSort(),new SelectionSort());
+        return Arrays.asList(new InsertionSort(), new MergeSort(), new QuickSort(), new SelectionSort());
     }
 }
