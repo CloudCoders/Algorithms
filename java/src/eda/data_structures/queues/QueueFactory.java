@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class QueueFactory implements Queue.Factory{
     @Override
-    public List<Queue> create() {
-        return Arrays.asList(new ArrayQueue(), new LLQueue());
+    public List<String> create() {
+        return Arrays.asList("eda.data_structures.queues.ArrayQueue","eda.data_structures.queues.LLQueue");
     }
 }

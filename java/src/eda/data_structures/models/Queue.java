@@ -18,6 +18,6 @@ public interface Queue<T> {
     void removeAll();
 
     interface Factory{
-        java.util.List<Queue> create();
+        java.util.List<String> create();
     }
 }

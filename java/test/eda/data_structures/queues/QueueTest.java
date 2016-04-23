@@ -6,6 +6,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import problems.problem2.ExamMarksFactory;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import static org.junit.Assert.*;
@@ -17,72 +19,86 @@ import static org.junit.Assert.*;
 @RunWith(value = Parameterized.class)
 public class QueueTest {
 
-    private Queue queue;
+    private String queueClassName;
 
-    public QueueTest(Queue queue){
-        this.queue = queue;
+    public QueueTest(String className){
+        this.queueClassName = className;
     }
 
     @Test
-    public void shoul_return_jose(){
+    public void shoul_return_jose() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Class queueClass = Class.forName(queueClassName);
+        Constructor constructor = queueClass.getConstructor();
+        Queue queue = (Queue) constructor.newInstance();
         queue.add("Jose");
         queue.add("Llorens");
         queue.add("Ripolles");
         assertEquals(queue.element(),"Jose");
-        queue.removeAll();
     }
 
     @Test
-    public void shoul_return_llorens(){
+    public void shoul_return_llorens()throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException{
+        Class queueClass = Class.forName(queueClassName);
+        Constructor constructor = queueClass.getConstructor();
+        Queue queue = (Queue) constructor.newInstance();
         queue.add("Jose");
         queue.add("Llorens");
         queue.add("Ripolles");
         queue.remove();
         assertEquals(queue.element(),"Llorens");
-        queue.removeAll();
     }
 
     @Test
-    public void should_duplicate_length_correctly(){
+    public void should_duplicate_length_correctly()throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException{
+        Class queueClass = Class.forName(queueClassName);
+        Constructor constructor = queueClass.getConstructor();
+        Queue queue = (Queue) constructor.newInstance();
         for(int i = 0; i<=50;i++){
             queue.add(i);
         }
         queue.remove();
         queue.remove();
         assertEquals(queue.element(),2);
-        queue.removeAll();
     }
 
     @Test
-    public void should_return_null_when_peek_in_empty_queue(){
+    public void should_return_null_when_peek_in_empty_queue()throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException{
+        Class queueClass = Class.forName(queueClassName);
+        Constructor constructor = queueClass.getConstructor();
+        Queue queue = (Queue) constructor.newInstance();
         assertEquals(queue.peek(),null);
-        queue.removeAll();
     }
 
     @Test
-    public void should_return_null_when_poll_in_empty_queue(){
+    public void should_return_null_when_poll_in_empty_queue()throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException{
+        Class queueClass = Class.forName(queueClassName);
+        Constructor constructor = queueClass.getConstructor();
+        Queue queue = (Queue) constructor.newInstance();
         assertEquals(queue.poll(),null);
-        queue.removeAll();
     }
 
     @Test
-    public void shouls_return_llorens_when_peek(){
+    public void shouls_return_llorens_when_peek()throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException{
+        Class queueClass = Class.forName(queueClassName);
+        Constructor constructor = queueClass.getConstructor();
+        Queue queue = (Queue) constructor.newInstance();
         queue.add("Jose");
         queue.add("Llorens");
         queue.add("Ripolles");
         queue.remove();
         assertEquals(queue.poll(),"Llorens");
-        queue.removeAll();
     }
 
-    public void shouls_return_Ripolles_when_peek(){
+    public void shouls_return_Ripolles_when_peek()throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException{
+        Class queueClass = Class.forName(queueClassName);
+        Constructor constructor = queueClass.getConstructor();
+        Queue queue = (Queue) constructor.newInstance();
         queue.add("Jose");
         queue.add("Llorens");
         queue.add("Ripolles");
         queue.remove();
         queue.remove();
         assertEquals(queue.peek(),"Llorens");
-        queue.removeAll();
     }
 
     @Parameterized.Parameters(name = "{index}: {0}")
