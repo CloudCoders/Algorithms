@@ -9,10 +9,15 @@ public interface Queue<T> {
 
     T element();
 
-
     T peek();
 
     T poll();
 
     T remove();
+
+    void removeAll();
+
+    interface Factory{
+        java.util.List<Queue> create();
+    }
 }

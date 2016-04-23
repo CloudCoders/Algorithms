@@ -71,6 +71,15 @@ public class ArrayQueue<T> implements Queue<T>{
         return aux;
     }
 
+    @Override
+    public void removeAll() {
+        array = (T[]) new Object[PREDEFYNIED_INITIAL_LENGTH];
+        head =0;
+        tail=0;
+        elements = 0;
+
+    }
+
     private int inc(int i){
         return (i+1)%array.length;
     }
