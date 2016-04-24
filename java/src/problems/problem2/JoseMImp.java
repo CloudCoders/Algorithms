@@ -10,8 +10,8 @@ public class JoseMImp implements ExamMarks {
      * @return number of marks greater than a one mark
      */
     public int numberOfMarks(int[] h, int mark){
-        if(h[0] > mark) return h.length;
-        else if(h[h.length-1] <= mark) return 0;
+        if(h.length == 0 || h[h.length-1] <= mark) return 0;
+        else if(h[0] > mark) return h.length;
         else return numberOfMarks(h,mark,0,h.length-1);
     }
 
