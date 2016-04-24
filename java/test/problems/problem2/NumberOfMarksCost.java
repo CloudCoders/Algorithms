@@ -18,7 +18,7 @@ public class NumberOfMarksCost {
     private static int SIZE_INCR = 100000;
 
     //Mark to be beaten
-    private static final int MARK = 50;
+    //private static final int MARK = 50;
     //Maximum mark possible
     private static final int MAX_ARRAY = 100;
   
@@ -31,25 +31,30 @@ public class NumberOfMarksCost {
         System.out.println("#       Measurement of search times: ");
         System.out.println("#        Marks from 0 to "+MAX_ARRAY+"    ");
         System.out.println("#----------------------------------------- ");
-        System.out.println("#  Size    Search time   Nº Marks > "+MARK+"   ");
+        System.out.println("#  Size    Search time                     ");
 
 
         for (ExamMarks ex : list){
             String clazz = ex.getClass().getName();
             t1 = t2 = time = 0;
-            System.out.println("#-----------------------------------------");
+            System.out.println("#--------------------------------------------------");
             System.out.println("#  \t\t" + clazz.replaceFirst("problems.problem2.", "") + " implementation.");
-            System.out.println("#-----------------------------------------");
+            System.out.println("#--------------------------------------------------");
             for (int t = SIZE_INI; t <= SIZE_FIN; t += SIZE_INCR) {
+                //The mark should be random and not predefined
+                int mark = (int)(Math.random()*(MAX_ARRAY - 1));
                 vector = generateIncreasingRandoms(t, MAX_ARRAY);
                 t1 = System.nanoTime();
-                int n = ex.numberOfMarks(vector, MARK);
+                int n = ex.numberOfMarks(vector, mark);
                 t2 = System.nanoTime();
                 time += t2 - t1;
-                System.out.printf(Locale.US, " %1$8d %2$8.0f μs      %3$8d\n",
+                //The boolean correct check if the algorithm work correctly
+                boolean correct = (vector[vector.length-n-1]<=mark && vector[vector.length-n]>mark);
+                System.out.printf(Locale.US, " %1$8d %2$8.0f μs      %3$8d %4$8b\n",
                         t,
                         time / 1e3,
-                        n);
+                        n,
+                        correct);
             }
         }
     }
