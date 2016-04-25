@@ -13,18 +13,20 @@ import java.util.*;
 public class NumberOfMarksCost {
 
     //Change these values to test different array sizes
-    private static int SIZE_INI = 100000;
-    private static int SIZE_FIN = 1000000;
-    private static int SIZE_INCR = 100000;
+    private static int SIZE_INI = 1000000;
+    private static int SIZE_FIN = 10000000;
+    private static int SIZE_INCR = 1000000;
 
-    //Mark to be beaten
-    //private static final int MARK = 50;
+    //Change these values to test with more or less repetitions
+    private static int REPETITIONS = 20;
+
     //Maximum mark possible
     private static final int MAX_ARRAY = 100;
   
     public static void main(String args[]) {
         int [] vector;
         double t1, t2, time;
+        Random random = new Random();
         List<ExamMarks> list = new ExamMarksFactory().create();
 
         System.out.println("#-----------------------------------------");
@@ -36,25 +38,26 @@ public class NumberOfMarksCost {
 
         for (ExamMarks ex : list){
             String clazz = ex.getClass().getName();
-            t1 = t2 = time = 0;
             System.out.println("#--------------------------------------------------");
             System.out.println("#  \t\t" + clazz.replaceFirst("problems.problem2.", "") + " implementation.");
             System.out.println("#--------------------------------------------------");
             for (int t = SIZE_INI; t <= SIZE_FIN; t += SIZE_INCR) {
-                //The mark should be random and not predefined
-                int mark = (int)(Math.random()*(MAX_ARRAY - 1));
-                vector = generateIncreasingRandoms(t, MAX_ARRAY);
-                t1 = System.nanoTime();
-                int n = ex.numberOfMarks(vector, mark);
-                t2 = System.nanoTime();
-                time += t2 - t1;
-                //The boolean correct check if the algorithm work correctly
-                boolean correct = (vector[vector.length-n-1]<=mark && vector[vector.length-n]>mark);
-                System.out.printf(Locale.US, " %1$8d %2$8.0f μs      %3$8d %4$8b\n",
-                        t,
-                        time / 1e3,
-                        n,
-                        correct);
+                //Reset time
+                time = 0;
+                //The boolean correct check if the algorithm work correctly. Is correct until proven otherwise.
+                boolean correct = true;
+                for(int r = 0; r < REPETITIONS; r++) {
+                    //The mark should be random and not predefined
+                    int mark = random.nextInt(MAX_ARRAY-1);
+                    vector = generateIncreasingRandoms(t, MAX_ARRAY);
+                    t1 = System.nanoTime();
+                    int n = ex.numberOfMarks(vector, mark);
+                    t2 = System.nanoTime();
+                    time += t2 - t1;
+                    correct = correct && (vector[vector.length-n-1]>mark || vector[vector.length-n]<=mark);
+                }
+                time = time/REPETITIONS;
+                System.out.printf(Locale.US, " %1$8d %2$10.0f ns %3$8b\n", t, time, correct);
             }
         }
     }
