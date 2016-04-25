@@ -13,12 +13,12 @@ import java.util.*;
 public class NumberOfMarksCost {
 
     //Change these values to test different array sizes
-    private static int SIZE_INI = 100000;
-    private static int SIZE_FIN = 1000000;
-    private static int SIZE_INCR = 100000;
+    private static int SIZE_INI = 1000000;
+    private static int SIZE_FIN = 10000000;
+    private static int SIZE_INCR = 1000000;
 
     //Change these values to test with more or less repetitions
-    private static int REPETITIONS = 100;
+    private static int REPETITIONS = 20;
 
     //Maximum mark possible
     private static final int MAX_ARRAY = 100;
@@ -54,9 +54,7 @@ public class NumberOfMarksCost {
                     int n = ex.numberOfMarks(vector, mark);
                     t2 = System.nanoTime();
                     time += t2 - t1;
-                    if(!(vector[vector.length-n-1]<=mark && vector[vector.length-n]>mark)){
-                        correct = false;
-                    }
+                    correct = correct && (vector[vector.length-n-1]>mark || vector[vector.length-n]<=mark);
                 }
                 time = time/REPETITIONS;
                 System.out.printf(Locale.US, " %1$8d %2$10.0f ns %3$8b\n", t, time, correct);
