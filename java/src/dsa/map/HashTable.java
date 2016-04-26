@@ -95,12 +95,12 @@ public class HashTable<K,V> implements Map<K,V> {
     }
 
     public int hashCode(){
-        int hasCode = 0;
+        int hashCode = 0;
         Set<MapEntry<K,V>> set = this.entrySet();
         for(MapEntry<K,V> entry : set){
-            hasCode+=entry.hashCode();
+            hashCode+=entry.hashCode();
         }
-        return hasCode;
+        return hashCode;
     }
 
 
@@ -130,7 +130,7 @@ public class HashTable<K,V> implements Map<K,V> {
             entry = entry.getNextEntry();
         }
 
-        MapEntry<K,V> newEntry = new MapEntry<K,V>(key,value,entry);
+        MapEntry<K,V> newEntry = new MapEntry<K,V>(key,value,mainArray[index]);
         mainArray[index] = newEntry;
         size++;
         loadFactor = size/(double) mainArray.length;
@@ -201,7 +201,7 @@ public class HashTable<K,V> implements Map<K,V> {
 
 
     private int nextPrimeNumber(int x){
-        for(int i=x+1;true;i++){
+        for(int i=x*x;true;i++){
             if(isPrime(i)){
                 return i;
             }
@@ -229,6 +229,7 @@ public class HashTable<K,V> implements Map<K,V> {
     private void rehashing() {
         MapEntry<K,V>[] newArray = new MapEntry[nextPrimeNumber(mainArray.length)];
         MapEntry<K,V>[] oldArray = mainArray;
+        size = 0;
         mainArray = newArray;
         for(int i = 0; i<oldArray.length;i++){
             MapEntry<K,V> entry = oldArray[i];

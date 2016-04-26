@@ -10,11 +10,9 @@ import org.junit.runners.Parameterized;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -254,7 +252,83 @@ public class MapTest {
         Constructor constructor = mapClass.getConstructor();
         Map map = (Map) constructor.newInstance();
         Map otherMap = (Map) constructor.newInstance();
+        map.put("Hello","Hola");
+        map.put("World", "Mundo");
+        map.put("First","Primero");
+        otherMap.put("Second","Segundo");
+        otherMap.put("Iorens","PutoAmo");
+        Set<MapEntry<String,String>> mapSet= map.entrySet();
+        Set<MapEntry<String,String>> otherMapSet = otherMap.entrySet();
+        map.putAll(otherMap);
+        mapSet.addAll(otherMapSet);
+        assertEquals(mapSet,map.entrySet());
     }
+
+    @Test
+    public void should_remove_value_correctly() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Class mapClass = Class.forName(mapClassName);
+        Constructor constructor = mapClass.getConstructor();
+        Map map = (Map) constructor.newInstance();
+        map.put("Hello","Hola");
+        map.put("World", "Mundo");
+        map.put("First","Primero");
+        map.put("Second","Segundo");
+        map.put("Iorens","PutoAmo");
+        assertEquals("Hola",map.get("Hello"));
+        map.remove("Hello");
+        assertEquals(null,map.get("Hello"));
+    }
+
+    @Test
+    public void should_return_size_correctly() throws ClassNotFoundException, IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException {
+        Class mapClass = Class.forName(mapClassName);
+        Constructor constructor = mapClass.getConstructor();
+        Map map = (Map) constructor.newInstance();
+        map.put("Hello","Hola");
+        map.put("World", "Mundo");
+        map.put("First","Primero");
+        map.put("Second","Segundo");
+        map.put("Iorens","PutoAmo");
+        assertEquals(5,map.size());
+        map.remove("Hello");
+        map.remove("World");
+        assertEquals(3,map.size());
+    }
+
+    @Test
+    public void should_return_values_correctly() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Class mapClass = Class.forName(mapClassName);
+        Constructor constructor = mapClass.getConstructor();
+        Map map = (Map) constructor.newInstance();
+        map.put("Hello","Hola");
+        map.put("World", "Mundo");
+        map.put("First","Primero");
+        map.put("Second","Segundo");
+        map.put("Iorens","PutoAmo");
+        Collection<String> values =map.values();
+        for(String s : values) {
+            assertEquals(true, map.containsValue(s) );
+        }
+        assertEquals(map.size(),values.size());
+    }
+
+    @Test
+    public void should_do_rehashing_correctly() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Class mapClass = Class.forName(mapClassName);
+        Constructor constructor = mapClass.getConstructor();
+        Map<Integer,Integer> map = (Map) constructor.newInstance();
+        for(int i = 0; i<200 ; i++){
+            map.put(i,i);
+        }
+        assertEquals(200,map.size());
+        assertEquals((Integer)0,map.get(0));
+        assertEquals((Integer)50,map.get(50));
+        assertEquals((Integer)100,map.get(100));
+        assertEquals((Integer)150,map.get(150));
+        assertEquals((Integer)199,map.get(199));
+    }
+
+
 
 
 

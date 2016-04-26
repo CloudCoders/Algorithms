@@ -1,4 +1,4 @@
-package dsa.list.model;
+package dsa.list;
 
 /**
  * Created by JoseLlorens on 20/04/2016.
