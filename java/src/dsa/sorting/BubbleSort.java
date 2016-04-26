@@ -1,4 +1,4 @@
-package eda.sorting;
+package dsa.sorting;
 
 public class BubbleSort <T extends Comparable<T>> implements Sorting<T>{
 

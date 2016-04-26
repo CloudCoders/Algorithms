@@ -1,6 +1,6 @@
-package eda.FIFO;
+package dsa.FIFO;
 
-import eda.FIFO.model.Queue;
+import dsa.FIFO.model.Queue;
 
 public class ArrayQueue<T> implements Queue<T> {
 
