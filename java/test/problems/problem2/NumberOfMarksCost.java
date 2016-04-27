@@ -39,10 +39,17 @@ public class NumberOfMarksCost {
         }
 
         for (ExamMarks ex : list){
+
             String clazz = ex.getClass().getName();
             System.out.println("#-----------------------------------------");
             System.out.println("#  \t\t" + clazz.replaceFirst("problems.problem2.", "") + " implementation.");
+            System.out.printf(Locale.US, " %1$8s    %2$10.0s ns     %3$8s\n",
+                    "Size",
+                    "Search time",
+                    "Mark avg"
+            );
             System.out.println("#-----------------------------------------");
+
             for (int t = 0; t < vectors.length; t++) {
                 //Reset time
                 time = 0;
