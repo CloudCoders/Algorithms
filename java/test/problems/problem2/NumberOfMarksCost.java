@@ -10,14 +10,14 @@ public class NumberOfMarksCost {
     private static int SIZE_INCR = 100000;
 
     //Change these values to test with more or less repetitions
-    private static int REPETITIONS = 20;
+    private static int REPETITIONS = 25;
 
     //Maximum mark possible
     private static final int MAX_ARRAY = 100;
 
     public static void main(String args[]) {
-        int [][][] vectors = new int[SIZE_FIN/SIZE_INCR][REPETITIONS][];
-        int [][] marksVector = new int[SIZE_FIN/SIZE_INCR][REPETITIONS];
+        int [][][] vectors = new int[(SIZE_FIN-SIZE_INI)/SIZE_INCR +1][REPETITIONS][];
+        int [][] marksVector = new int[(SIZE_FIN-SIZE_INI)/SIZE_INCR +1][REPETITIONS];
 
         int countMarks;
         double t1, t2, time;
@@ -28,28 +28,25 @@ public class NumberOfMarksCost {
         System.out.println("#       Measurement of search times: ");
         System.out.println("#        Marks from 0 to "+MAX_ARRAY+"    ");
         System.out.println("#----------------------------------------- ");
-        System.out.println("#  Size    Search time                     ");
+        System.out.println("#    Size      Search time     Mark avg");
 
-        for (int t = SIZE_INI; t <= SIZE_FIN; t += SIZE_INCR) {
+        for (int t = SIZE_INI, i = 0; t <= SIZE_FIN; t += SIZE_INCR, i++) {
             for(int r = 0; r < REPETITIONS; r++) {
-                int i = t/SIZE_INCR -1;
                 //The mark should be random and not predefined
-                marksVector[i][r] = random.nextInt(MAX_ARRAY-1);
+                marksVector[i][r] = random.nextInt(MAX_ARRAY+1);
                 vectors[i][r] = generateIncreasingRandoms(t, MAX_ARRAY);
             }
         }
 
         for (ExamMarks ex : list){
             String clazz = ex.getClass().getName();
-            System.out.println("#--------------------------------------------------");
+            System.out.println("#-----------------------------------------");
             System.out.println("#  \t\t" + clazz.replaceFirst("problems.problem2.", "") + " implementation.");
-            System.out.println("#--------------------------------------------------");
+            System.out.println("#-----------------------------------------");
             for (int t = 0; t < vectors.length; t++) {
                 //Reset time
                 time = 0;
                 countMarks = 0;
-                //The boolean correct check if the algorithm work correctly. Is correct until proven otherwise.
-                boolean correct = true;
                 for(int r = 0; r < REPETITIONS; r++) {
                     int[] vector = vectors[t][r];
                     int mark = marksVector[t][r];
@@ -58,15 +55,13 @@ public class NumberOfMarksCost {
                     t2 = System.nanoTime();
                     time += t2 - t1;
                     countMarks += n;
-                    correct = correct && vector[vector.length-n-1]<=mark && (n==0 || vector[vector.length-n]>mark);
                 }
                 time = time/REPETITIONS;
                 countMarks = countMarks/REPETITIONS;
-                System.out.printf(Locale.US, " %1$8d    %2$10.0f ns     %3$8d   %4$8b\n",
+                System.out.printf(Locale.US, " %1$8d    %2$10.0f ns     %3$8d\n",
                         t*SIZE_INCR+SIZE_INI,
                         time,
-                        countMarks,
-                        correct
+                        countMarks
                 );
             }
         }
