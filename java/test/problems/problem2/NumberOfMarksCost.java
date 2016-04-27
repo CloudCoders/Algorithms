@@ -5,12 +5,12 @@ import java.util.*;
 public class NumberOfMarksCost {
 
     //Change these values to test different array sizes
-    private static int SIZE_INI = 100000;
-    private static int SIZE_FIN = 1000000;
-    private static int SIZE_INCR = 100000;
+    private static int SIZE_INI = 10000;
+    private static int SIZE_FIN = 110000;
+    private static int SIZE_INCR = 20000;
 
     //Change these values to test with more or less repetitions
-    private static int REPETITIONS = 25;
+    private static int REPETITIONS = 500;
 
     //Maximum mark possible
     private static final int MAX_ARRAY = 100;
@@ -50,6 +50,7 @@ public class NumberOfMarksCost {
                 for(int r = 0; r < REPETITIONS; r++) {
                     int[] vector = vectors[t][r];
                     int mark = marksVector[t][r];
+                    ex.numberOfMarks(vector, mark); // Preloading pages of heap
                     t1 = System.nanoTime();
                     int n = ex.numberOfMarks(vector, mark);
                     t2 = System.nanoTime();
