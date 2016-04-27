@@ -1,4 +1,4 @@
-package eda.sorting;
+package dsa.sorting;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -97,6 +97,7 @@ public class SortingTest {
     }
 
     @Test
+
     public void should_return_empty_array_when_empty_array() {
         Comparable h[] = new Comparable[0];
         Comparable res[] = new Comparable[0];

@@ -14,6 +14,7 @@ public class ExamMarksTest {
     private ExamMarks examMarksTest;
 
     public ExamMarksTest(ExamMarks examMarksTest) {
+
         this.examMarksTest = examMarksTest;
     }
 

@@ -1,5 +1,5 @@
 
-package eda.sorting;
+package dsa.sorting;
 
 /**
  * @author jose.llorens.ripolles@gmail.com

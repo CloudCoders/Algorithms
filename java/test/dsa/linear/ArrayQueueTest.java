@@ -1,6 +1,6 @@
-package eda.linear;
+package dsa.linear;
 
-import eda.FIFO.ArrayQueue;
+import dsa.FIFO.ArrayQueue;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;

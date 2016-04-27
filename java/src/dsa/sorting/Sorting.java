@@ -1,4 +1,4 @@
-package eda.sorting;
+package dsa.sorting;
 
 import java.util.List;
 

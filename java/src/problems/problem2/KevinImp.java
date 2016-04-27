@@ -15,8 +15,10 @@ public class KevinImp implements ExamMarks {
             if(marks[mitad] <= mark)
                 return numberOfMarks(marks, mitad+1, fin, mark);
             else
+
                 return 1 + numberOfMarks(marks, ini, mitad-1, mark) + numberOfMarks(marks, mitad+1, fin, mark);
         }else
             return 0;
+
     }
 }

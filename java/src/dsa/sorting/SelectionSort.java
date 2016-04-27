@@ -1,4 +1,4 @@
-package eda.sorting;
+package dsa.sorting;
 
 /**
  * Created by JoseManuel on 19/04/2016.
