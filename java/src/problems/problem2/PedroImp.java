@@ -9,23 +9,17 @@ public class PedroImp implements ExamMarks {
         int ini=0;
         int fin=h.length-1;
         int mitad;
-        while (ini<fin){
+
+        while (ini<fin) {
             mitad=(ini+fin)/2;
-            if (mark>h[mitad] && mark < h[mitad + 1]){
-                return h.length-mitad;
-            } else if(mark>h[mitad]){
-                if(mitad % 2 ==0){
-                    ini=mitad+2;
-                }else {
-                    ini=mitad+1;
-                }
-            } else if (mark < h[mitad]){
-                fin = mitad;
-            } else {
-                return h.length-1-mitad;
+            if(h[mitad]<=mark){
+                if(mitad%2==0){ini=mitad+2;}else{ini=mitad+1;}
+            }else {
+                fin=mitad;
             }
+
         }
-        return  h.length-ini;
+        return h.length-ini;
     }
 
 
