@@ -11,6 +11,7 @@ public class ExamMarksFactory implements ExamMarks.Factory {
                 new JoseLlorensImp(),
                 new CarlosImp(),
                 new KevinImp(),
-                new JoseMImp());
+                new JoseMImp(),
+                new PedroImp());
     }
 }
