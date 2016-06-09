@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="dsa.linear.ArrayQueueTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2016-06-09T11:40:44" hostname="MacBook-Pro-de-Antonio-3.local" time="0.007">
-  <properties/>
-  <testcase name="testAdd" classname="dsa.linear.ArrayQueueTest" time="0.007"/>
-  <testcase name="testIsEmpty" classname="dsa.linear.ArrayQueueTest" time="0.0"/>
-  <system-out><![CDATA[[1] [2] [3] [4] [5] [6] [7] [8] [9] [10] 
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
