@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import java.util.Collection;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,7 +15,6 @@ public class ExamMarksTest {
     private ExamMarks examMarksTest;
 
     public ExamMarksTest(ExamMarks examMarksTest) {
-
         this.examMarksTest = examMarksTest;
     }
 

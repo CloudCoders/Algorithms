@@ -10,13 +10,13 @@ public class ArrayQueueTest {
 
     @Test
     public void testIsEmpty(){
-        ArrayQueue<Integer> array = new ArrayQueue<>(10);
+        ArrayQueue<Integer> array = new ArrayQueue(10);
         assertTrue(array.isEmpty());
     }
 
     @Test
     public void testAdd(){
-        ArrayQueue<Integer> array = new ArrayQueue<>(10);
+        ArrayQueue<Integer> array = new ArrayQueue(10);
         array.add(1);
         array.add(2);
         array.add(3);

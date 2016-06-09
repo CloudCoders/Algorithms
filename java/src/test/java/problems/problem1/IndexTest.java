@@ -1,5 +1,6 @@
 package problems.problem1;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -8,7 +9,7 @@ public class IndexTest {
 
     private Index index;
 
-    @Test
+    @Before
     public void setUp() {
         index = new Index();
     }
