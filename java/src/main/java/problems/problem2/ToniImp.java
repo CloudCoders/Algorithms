@@ -6,7 +6,7 @@ public class ToniImp implements ExamMarks {
         int ini = 0;
         int fin = h.length - 1;
 
-        if (h.length > 0 ) return h.length;
+        if (h.length > 0 && h[ini] > mark) return h.length;
 
         for (int i = (ini + fin) / 2; i < fin; i = (ini + fin) / 2) {
             if (h[i] <= mark) {
