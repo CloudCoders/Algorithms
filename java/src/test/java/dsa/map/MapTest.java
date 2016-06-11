@@ -333,7 +333,7 @@ public class MapTest {
 
 
     @Parameterized.Parameters(name = "{index}: {0}")
-    public static Collection data() {
+    public static List<String> data() {
         return new MapFactory().create();
     }
 

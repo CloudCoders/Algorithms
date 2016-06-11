@@ -7,6 +7,7 @@ import org.junit.runners.Parameterized;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import static org.junit.Assert.assertArrayEquals;
 
@@ -116,7 +117,7 @@ public class SortingTest {
     }
 
     @Parameterized.Parameters(name = "{index}: {0}")
-    public static Collection data() {
+    public static List<Sorting> data() {
         return new SortingFactory().create();
     }
 

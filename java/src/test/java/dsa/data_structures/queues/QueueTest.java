@@ -12,10 +12,6 @@ import java.util.Collection;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by JoseLlorens on 23/04/2016.
- */
-
 @RunWith(value = Parameterized.class)
 public class QueueTest {
 
