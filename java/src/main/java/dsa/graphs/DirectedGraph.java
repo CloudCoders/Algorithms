@@ -12,11 +12,11 @@ import java.util.*;
 public class DirectedGraph<E> implements Graph<E> {
 
     //List to keep all our vertex
-    List<E> vertices = new ArrayList<>(100);
+    protected List<E> vertices = new ArrayList<>(100);
 
 
     //A map to keep each vertex linked to their adjacents
-    Map vertexAdjacents = (Map) new Hashtable<E,PairVertexDistance<E>>();
+    protected Map vertexAdjacents = (Map) new Hashtable<E,PairVertexDistance<E>>();
 
 
 
