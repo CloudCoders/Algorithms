@@ -15,6 +15,8 @@ public interface Queue<T> {
 
     T remove();
 
+    boolean isEmpty();
+
     void removeAll();
 
     interface Factory{

@@ -84,7 +84,7 @@ public class ArrayQueue<T> implements Queue<T>{
         return (i+1)%array.length;
     }
 
-    private boolean isEmpty(){
+    public boolean isEmpty(){
         return this.elements==0;
     }
 

@@ -60,6 +60,11 @@ public class LinkedListQueue<T> implements Queue<T> {
     }
 
     @Override
+    public boolean isEmpty() {
+        return head == null;
+    }
+
+    @Override
     public void removeAll() {
         head=null;
         tail=null;
